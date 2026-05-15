@@ -75,7 +75,6 @@ body.nav-fixed {
   font-weight: 700;
   letter-spacing: 0.13em;
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .ubc-university-name-link:hover {
@@ -235,7 +234,7 @@ code:not(.sourceCode) {
   }
 
   .ubc-university-name-link {
-    font-size: clamp(0.6rem, 3vw, 0.95rem);
-    letter-spacing: 0.04em;
+    font-size: clamp(0.55rem, 2.5vw, 0.9rem);
+    letter-spacing: 0.03em;
   }
 }
