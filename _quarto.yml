@@ -17,7 +17,7 @@ website:
       - text: "Khanh Dao Duc"
         href: https://kdaoduc.com/
       - icon: github
-        href: https://github.com/YOUR-ORG/UBCMath-summer-RA
+        href: https://github.com/UBCMath-Summer-RA-Cohort/research-blog
         aria-label: GitHub
 
   page-footer:
