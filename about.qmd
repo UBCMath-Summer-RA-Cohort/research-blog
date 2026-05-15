@@ -6,6 +6,12 @@ This blog is maintained by summer research assistants in the [UBC Department of 
 
 ## Supervisor
 
+**[Khanh Dao Duc](https://kdaoduc.com/)** — Assistant Professor, UBC Mathematics & Computer Science
+Research combines mathematical, computational, and statistical tools to study biological processes and complex datasets.
+[khanh.daoduc@ubc.ca](mailto:khanh.daoduc@ubc.ca)
+
+## Maintainer
+
 **Riddhi Battu** — [riddhi.battu@ubc.ca](mailto:riddhi.battu@ubc.ca)
 
 ## How Posts Are Added

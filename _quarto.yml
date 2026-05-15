@@ -5,19 +5,24 @@ project:
 website:
   title: "UBC Math Summer Research Blog"
   description: "Research updates from the UBC Mathematics summer RA program"
+
   navbar:
+    title: "Department of Mathematics"
     left:
       - href: index.qmd
         text: Home
       - href: about.qmd
         text: About
     right:
+      - text: "Khanh Dao Duc"
+        href: https://kdaoduc.com/
       - icon: github
         href: https://github.com/YOUR-ORG/UBCMath-summer-RA
         aria-label: GitHub
 
   page-footer:
-    left: "© 2026 UBC Department of Mathematics"
+    left: "© 2026 [UBC Department of Mathematics](https://www.math.ubc.ca/)"
+    center: "Supervisor: [Khanh Dao Duc](https://kdaoduc.com/) · Maintainer: [Riddhi Battu](mailto:riddhi.battu@ubc.ca)"
     right:
       - text: "Built with Quarto"
         href: https://quarto.org
@@ -27,3 +32,4 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    include-before-body: _includes/ubc-header.html
