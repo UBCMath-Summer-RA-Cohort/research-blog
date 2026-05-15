@@ -1,0 +1,21 @@
+name: ubcmath-ra-blog
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - quarto
+  - jupyter
+  - numpy
+  - matplotlib
+  - pandas
+  - scipy
+  - pip
+  - r-base=4.4
+  - r-knitr
+  - r-rmarkdown
+  - r-ggplot2
+  - r-tidyverse
+  - r-reticulate
+  - pip:
+      - nbformat
