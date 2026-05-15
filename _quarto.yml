@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "UBC Math Summer Research Blog"
+  description: "Research updates from the UBC Mathematics summer RA program"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+    right:
+      - icon: github
+        href: https://github.com/YOUR-ORG/UBCMath-summer-RA
+        aria-label: GitHub
+
+  page-footer:
+    left: "© 2026 UBC Department of Mathematics"
+    right:
+      - text: "Built with Quarto"
+        href: https://quarto.org
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

@@ -1,0 +1,29 @@
+---
+title: "Welcome to the UBC Math Summer RA Blog"
+author: "Riddhi Battu"
+date: "2026-05-15"
+description: "An introduction to the summer research assistant program and this blog."
+categories: [announcements]
+image: thumbnail.png
+---
+
+Welcome! This blog is where UBC Mathematics summer research assistants document and share their work.
+
+## What Is This Blog For?
+
+Each of you will write at least one blog post describing your research project. Posts can cover:
+
+- The mathematical background and motivation
+- Methods and techniques you are using
+- Interesting results or visualizations
+- Open questions you are exploring
+
+Posts are written in [Quarto](https://quarto.org), which lets you mix prose, mathematics, and executable code (R or Python) in a single document.
+
+## Getting Started
+
+Read the **[How to Contribute](../how-to-contribute/index.qmd)** post for step-by-step instructions on setting up Quarto, creating your first post, and submitting it for review.
+
+If you have any questions, reach out at [riddhi.battu@ubc.ca](mailto:riddhi.battu@ubc.ca).
+
+Good luck with your research this summer!

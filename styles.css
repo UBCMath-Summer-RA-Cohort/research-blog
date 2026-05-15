@@ -1,0 +1,25 @@
+/* UBC brand accent — indigo/blue */
+.navbar {
+  background-color: #002145 !important;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #97d4e8 !important;
+}
+
+/* Post listing card hover */
+.quarto-listing-default .quarto-post:hover {
+  border-left: 3px solid #002145;
+  padding-left: 0.5rem;
+  transition: all 0.15s ease-in-out;
+}
+
+/* Title banner */
+.quarto-title-banner {
+  background-color: #002145;
+  color: white;
+}

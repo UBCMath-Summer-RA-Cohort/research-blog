@@ -1,0 +1,17 @@
+---
+title: "About This Blog"
+---
+
+This blog is maintained by summer research assistants in the [UBC Department of Mathematics](https://www.math.ubc.ca/). Each RA contributes posts describing their research project, methods, and findings over the course of the summer.
+
+## Supervisor
+
+**Riddhi Battu** — [riddhi.battu@ubc.ca](mailto:riddhi.battu@ubc.ca)
+
+## How Posts Are Added
+
+RAs work on individual Git branches and open pull requests to add new posts. See the [How to Contribute](posts/how-to-contribute/index.qmd) post for step-by-step instructions.
+
+## Blog Infrastructure
+
+This blog is built with [Quarto](https://quarto.org) and deployed to [GitHub Pages](https://pages.github.com/) via GitHub Actions.

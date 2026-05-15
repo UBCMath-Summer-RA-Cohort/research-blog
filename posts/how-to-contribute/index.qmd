@@ -1,0 +1,241 @@
+---
+title: "How to Contribute a Blog Post"
+author: "Riddhi Battu"
+date: "2026-05-15"
+description: "Step-by-step guide for RAs: install Quarto, write your post, and open a pull request."
+categories: [meta, tutorial]
+toc: true
+toc-depth: 3
+---
+
+This guide walks you through everything you need to add your research post to this blog — from installing Quarto to opening a pull request.
+
+## 1. Prerequisites
+
+You need the following tools installed once on your machine.
+
+### Git
+
+Check whether Git is installed:
+
+```bash
+git --version
+```
+
+If not, download it from <https://git-scm.com>.
+
+### Quarto
+
+Download and install Quarto from <https://quarto.org/docs/get-started/>. It works on macOS, Windows, and Linux.
+
+Verify the install:
+
+```bash
+quarto --version
+```
+
+### A Text Editor
+
+[VS Code](https://code.visualstudio.com/) with the [Quarto extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) gives you live preview and syntax highlighting. RStudio also has native Quarto support.
+
+---
+
+## 2. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR-ORG/UBCMath-summer-RA.git
+cd UBCMath-summer-RA
+```
+
+---
+
+## 3. Create Your Branch
+
+Always work on your own branch — never commit directly to `main`.
+
+```bash
+git checkout -b firstname-lastname/my-research-topic
+```
+
+For example:
+
+```bash
+git checkout -b jane-doe/spectral-graph-theory
+```
+
+---
+
+## 4. Create Your Post Folder
+
+Posts live in `posts/`. Create a folder with a short, descriptive, lowercase-hyphenated name:
+
+```
+posts/
+└── spectral-graph-theory/
+    └── index.qmd
+```
+
+```bash
+mkdir posts/spectral-graph-theory
+```
+
+---
+
+## 5. Write Your Post
+
+Create `posts/spectral-graph-theory/index.qmd` (or whatever your folder is called) and start with this YAML header:
+
+```yaml
+---
+title: "Your Post Title"
+author: "Your Name"
+date: "2026-MM-DD"
+description: "One sentence about your project — shown in the post listing."
+categories: [your-topic, math]
+---
+```
+
+### YAML Fields
+
+| Field | Required | Notes |
+|---|---|---|
+| `title` | Yes | Shown as the page heading |
+| `author` | Yes | Your name |
+| `date` | Yes | Format `YYYY-MM-DD` |
+| `description` | Yes | 1–2 sentences; shown in the listing |
+| `categories` | Recommended | Tags for filtering (e.g. `[algebra, combinatorics]`) |
+| `image` | Optional | Path to a thumbnail image in your post folder |
+
+### Writing Prose
+
+Quarto uses standard Markdown. A few useful examples:
+
+```markdown
+## Section Heading
+
+**Bold text**, *italic text*, and `inline code`.
+
+A paragraph with a [hyperlink](https://quarto.org).
+```
+
+### Mathematics
+
+Inline math uses single dollar signs: `$f(x) = x^2$` renders as $f(x) = x^2$.
+
+Display math uses double dollar signs:
+
+```markdown
+$$
+\int_0^\infty e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}
+$$
+```
+
+$$
+\int_0^\infty e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}
+$$
+
+### Code Chunks (Optional)
+
+If your post includes computations, you can embed executable code. Quarto supports R and Python.
+
+**R example:**
+
+````markdown
+```{r}
+x <- seq(0, 2 * pi, length.out = 200)
+plot(x, sin(x), type = "l", col = "steelblue", lwd = 2,
+     main = "Sine Wave", xlab = "x", ylab = "sin(x)")
+```
+````
+
+**Python example:**
+
+````markdown
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2 * np.pi, 200)
+plt.plot(x, np.sin(x), color="steelblue", linewidth=2)
+plt.title("Sine Wave")
+plt.show()
+```
+````
+
+Code outputs (plots, tables, printed values) are embedded automatically in the rendered HTML.
+
+### Adding Images
+
+Put image files in your post folder alongside `index.qmd`, then reference them with standard Markdown:
+
+```markdown
+![Caption text](my-figure.png)
+```
+
+---
+
+## 6. Preview Locally
+
+From the project root, run:
+
+```bash
+quarto preview
+```
+
+This opens a live-updating browser preview at `http://localhost:4444` (or similar). Save your file to see changes instantly. Use `Ctrl+C` to stop the server when done.
+
+To render without serving:
+
+```bash
+quarto render
+```
+
+---
+
+## 7. Commit and Push
+
+Once you are happy with your post:
+
+```bash
+# Stage your new files
+git add posts/spectral-graph-theory/
+
+# Commit
+git commit -m "Add post: Spectral Graph Theory intro"
+
+# Push your branch
+git push -u origin firstname-lastname/my-research-topic
+```
+
+---
+
+## 8. Open a Pull Request
+
+1. Go to the repository on GitHub.
+2. Click **"Compare & pull request"** on your branch.
+3. Give the PR a clear title, e.g. `Add post: Spectral Graph Theory`.
+4. In the description, summarize your post in a sentence or two.
+5. Submit — your supervisor will review and merge.
+
+---
+
+## Tips and Common Mistakes
+
+- **Broken YAML**: YAML is whitespace-sensitive. Use spaces, not tabs. If `quarto preview` shows a parse error, the frontmatter is usually the culprit.
+- **Date format**: Use `YYYY-MM-DD` (e.g. `2026-06-10`), not `June 10` or `10/06/2026`.
+- **Math not rendering**: Make sure display math has blank lines above and below the `$$` delimiters.
+- **Images not showing**: Confirm the image file is in the same folder as `index.qmd` and the filename matches exactly (case-sensitive on Linux).
+
+---
+
+## Quick Reference
+
+| Task | Command |
+|---|---|
+| Clone repo | `git clone <url>` |
+| Create branch | `git checkout -b name/topic` |
+| Preview blog | `quarto preview` |
+| Render blog | `quarto render` |
+| Stage files | `git add posts/your-folder/` |
+| Commit | `git commit -m "message"` |
+| Push branch | `git push -u origin branch-name` |
