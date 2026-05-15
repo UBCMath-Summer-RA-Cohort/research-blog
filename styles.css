@@ -1,0 +1,213 @@
+/* ── UBC brand colours ──────────────────────────────────────────────────── */
+:root {
+  --ubc-blue:        #002145;
+  --ubc-blue-mid:    #0a3763;
+  --ubc-gold:        #FFCD00;
+  --ubc-light-blue:  #97d4e8;
+  --ubc-text-light:  #cce0f0;
+  --ubc-bar-height:  70px;   /* white institutional bar */
+  --navbar-height:   60px;   /* dark Dept of Mathematics bar (cosmo theme) */
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. WHITE INSTITUTIONAL BAR  (UBC crest + THE UNIVERSITY OF BRITISH COLUMBIA)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Quarto puts include-before-body content inside <main>.
+   Fixed positioning lifts it to the true top of the viewport, above the navbar. */
+.ubc-institutional-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2000;              /* above Quarto's navbar (z-index ~1030) */
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  border-bottom: 1px solid #d0d0d0;
+  height: var(--ubc-bar-height);
+  box-sizing: border-box;
+}
+
+/* Push the Quarto fixed navbar below the white bar */
+#quarto-header {
+  top: var(--ubc-bar-height) !important;
+}
+
+/* Quarto sets body.nav-fixed { padding-top: ~60px } for just the navbar.
+   We add the institutional bar height on top. */
+body.nav-fixed {
+  padding-top: calc(var(--ubc-bar-height) + var(--navbar-height)) !important;
+}
+
+/* Logo rendered via CSS background-image — path resolves relative to this
+   stylesheet, so it works correctly from any subdirectory page */
+.ubc-crest {
+  width: 50px;
+  height: 54px;
+  background-image: url('assets/ubc-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.ubc-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.ubc-bar-divider {
+  width: 1px;
+  height: 48px;
+  background-color: #b8c0c8;
+  margin: 0 20px;
+  flex-shrink: 0;
+}
+
+.ubc-university-name-link {
+  color: var(--ubc-blue);
+  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ubc-university-name-link:hover {
+  color: var(--ubc-blue-mid);
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. DARK-BLUE NAVBAR  (Department of Mathematics + nav links)
+   ═══════════════════════════════════════════════════════════════════════════ */
+.navbar {
+  background-color: var(--ubc-blue) !important;
+  border-bottom: 3px solid var(--ubc-gold);
+}
+
+/* Brand title: "Department of Mathematics" */
+.navbar-brand,
+.navbar-brand-text {
+  color: #ffffff !important;
+  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em;
+}
+
+.navbar-brand:hover,
+.navbar-brand-text:hover {
+  color: var(--ubc-gold) !important;
+  text-decoration: none;
+}
+
+/* Nav links */
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-size: 0.9rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: var(--ubc-gold) !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--ubc-gold) !important;
+  font-weight: 600;
+}
+
+/* GitHub icon */
+.navbar a[aria-label="GitHub"] { opacity: 0.8; }
+.navbar a[aria-label="GitHub"]:hover { opacity: 1; color: var(--ubc-gold) !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. TITLE / HERO BANNER
+   ═══════════════════════════════════════════════════════════════════════════ */
+.quarto-title-banner {
+  background: linear-gradient(135deg, var(--ubc-blue) 0%, var(--ubc-blue-mid) 100%);
+  border-bottom: 4px solid var(--ubc-gold);
+  padding: 3rem 0 2.5rem;
+}
+
+/* Force ALL title banner text to white */
+.quarto-title-banner h1,
+.quarto-title-banner .title,
+.quarto-title-banner p,
+.quarto-title-banner .description,
+.quarto-title-banner .quarto-title-meta,
+.quarto-title-banner .quarto-title-meta-contents,
+.quarto-title-banner .quarto-title-meta-heading {
+  color: #ffffff !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. BODY TYPOGRAPHY & LINKS
+   ═══════════════════════════════════════════════════════════════════════════ */
+h2, h3, h4 { color: var(--ubc-blue); }
+
+main a {
+  color: var(--ubc-blue-mid);
+  text-decoration: underline;
+  text-decoration-color: var(--ubc-gold);
+  text-underline-offset: 3px;
+}
+
+main a:hover { color: var(--ubc-blue); }
+
+code:not(.sourceCode) {
+  background-color: #f0f4f8;
+  color: var(--ubc-blue);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. POST LISTING
+   ═══════════════════════════════════════════════════════════════════════════ */
+.quarto-listing-default .quarto-post {
+  border-left: 3px solid transparent;
+  padding-left: 0.5rem;
+  transition: border-color 0.15s ease, padding-left 0.15s ease;
+}
+
+.quarto-listing-default .quarto-post:hover {
+  border-left-color: var(--ubc-gold);
+  padding-left: 0.75rem;
+}
+
+.listing-category {
+  background-color: var(--ubc-blue) !important;
+  color: #fff !important;
+  border-radius: 3px;
+}
+
+.listing-category:hover { background-color: var(--ubc-blue-mid) !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6. FOOTER
+   ═══════════════════════════════════════════════════════════════════════════ */
+.nav-footer {
+  background-color: var(--ubc-blue);
+  color: var(--ubc-text-light);
+  border-top: 3px solid var(--ubc-gold);
+}
+
+.nav-footer a { color: var(--ubc-light-blue) !important; }
+.nav-footer a:hover { color: var(--ubc-gold) !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7. TOC SIDEBAR
+   ═══════════════════════════════════════════════════════════════════════════ */
+#TOC .active {
+  color: var(--ubc-blue) !important;
+  font-weight: 600;
+  border-left: 2px solid var(--ubc-gold);
+  padding-left: 0.4rem;
+}
