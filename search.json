@@ -1,24 +1,38 @@
 [
   {
-    "objectID": "CONTRIBUTING.html",
-    "href": "CONTRIBUTING.html",
-    "title": "Contributing a Post",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About This Blog",
     "section": "",
-    "text": "THE UNIVERSITY OF BRITISH COLUMBIA"
+    "text": "THE UNIVERSITY OF BRITISH COLUMBIA\nThis blog is maintained by summer research assistants in the UBC Department of Mathematics. Each RA contributes posts describing their research project, methods, and findings over the course of the summer."
   },
   {
-    "objectID": "CONTRIBUTING.html#quick-steps",
-    "href": "CONTRIBUTING.html#quick-steps",
-    "title": "Contributing a Post",
-    "section": "Quick Steps",
-    "text": "Quick Steps\n\ngit clone the repo\nconda env create -f environment.yml (first time only)\nconda activate ubcmath-ra-blog\ngit checkout -b firstname-lastname/your-topic\nCreate posts/your-topic/index.qmd with proper YAML frontmatter\nquarto preview to check locally\ngit add, git commit, git push\nOpen a pull request on GitHub targeting main"
+    "objectID": "about.html#supervisor",
+    "href": "about.html#supervisor",
+    "title": "About This Blog",
+    "section": "Supervisor",
+    "text": "Supervisor\nKhanh Dao Duc — Assistant Professor, UBC Mathematics & Computer Science Research combines mathematical, computational, and statistical tools to study biological processes and complex datasets. khanh.daoduc@ubc.ca"
   },
   {
-    "objectID": "CONTRIBUTING.html#pr-checklist",
-    "href": "CONTRIBUTING.html#pr-checklist",
-    "title": "Contributing a Post",
-    "section": "PR Checklist",
-    "text": "PR Checklist\n\nBranch name follows firstname-lastname/topic format\nPost is in its own folder under posts/\nYAML has title, author, date, description, and categories\nquarto render completes without errors locally\nNo large binary files committed (images are fine; avoid datasets &gt; 10 MB)"
+    "objectID": "about.html#maintainer",
+    "href": "about.html#maintainer",
+    "title": "About This Blog",
+    "section": "Maintainer",
+    "text": "Maintainer\nRiddhi Battu — riddhi.battu@ubc.ca"
+  },
+  {
+    "objectID": "about.html#how-posts-are-added",
+    "href": "about.html#how-posts-are-added",
+    "title": "About This Blog",
+    "section": "How Posts Are Added",
+    "text": "How Posts Are Added\nRAs work on individual Git branches and open pull requests to add new posts. See the How to Contribute post for step-by-step instructions."
+  },
+  {
+    "objectID": "about.html#blog-infrastructure",
+    "href": "about.html#blog-infrastructure",
+    "title": "About This Blog",
+    "section": "Blog Infrastructure",
+    "text": "Blog Infrastructure\nThis blog is built with Quarto and deployed to GitHub Pages via GitHub Actions."
   },
   {
     "objectID": "index.html",
@@ -67,7 +81,7 @@
     "href": "posts/how-to-contribute/index.html#write-your-post",
     "title": "How to Contribute a Blog Post",
     "section": "5. Write Your Post",
-    "text": "5. Write Your Post\nCreate posts/spectral-graph-theory/index.qmd (or whatever your folder is called) and start with this YAML header:\n---\ntitle: \"Your Post Title\"\nauthor: \"Your Name\"\ndate: \"2026-MM-DD\"\ndescription: \"One sentence about your project — shown in the post listing.\"\ncategories: [your-topic, math]\n---\n\nYAML Fields\n\n\n\n\n\n\n\n\nField\nRequired\nNotes\n\n\n\n\ntitle\nYes\nShown as the page heading\n\n\nauthor\nYes\nYour name\n\n\ndate\nYes\nFormat YYYY-MM-DD\n\n\ndescription\nYes\n1–2 sentences; shown in the listing\n\n\ncategories\nRecommended\nTags for filtering (e.g. [algebra, combinatorics])\n\n\nimage\nOptional\nPath to a thumbnail image in your post folder\n\n\n\n\n\nWriting Prose\nQuarto uses standard Markdown. A few useful examples:\n## Section Heading\n\n**Bold text**, *italic text*, and `inline code`.\n\nA paragraph with a [hyperlink](https://quarto.org).\n\n\nMathematics\nInline math uses single dollar signs: $f(x) = x^2$ renders as \\(f(x) = x^2\\).\nDisplay math uses double dollar signs:\n$$\n\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}\n$$\n\\[\n\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}\n\\]\n\n\nCode Chunks (Optional)\nIf your post includes computations, you can embed executable code. Quarto supports R and Python.\nR example:\n```{r}\nx &lt;- seq(0, 2 * pi, length.out = 200)\nplot(x, sin(x), type = \"l\", col = \"steelblue\", lwd = 2,\n     main = \"Sine Wave\", xlab = \"x\", ylab = \"sin(x)\")\n```\nPython example:\n\n::: {#6d5d0ed4 .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 2 * np.pi, 200)\nplt.plot(x, np.sin(x), color=\"steelblue\", linewidth=2)\nplt.title(\"Sine Wave\")\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=590 height=431}\n:::\n:::\n\nCode outputs (plots, tables, printed values) are embedded automatically in the rendered HTML.\n\n\nAdding Images\nPut image files in your post folder alongside index.qmd, then reference them with standard Markdown:\n![Caption text](my-figure.png)"
+    "text": "5. Write Your Post\nCreate posts/spectral-graph-theory/index.qmd (or whatever your folder is called) and start with this YAML header:\n---\ntitle: \"Your Post Title\"\nauthor: \"Your Name\"\ndate: \"2026-MM-DD\"\ndescription: \"One sentence about your project — shown in the post listing.\"\ncategories: [your-topic, math]\n---\n\nYAML Fields\n\n\n\n\n\n\n\n\nField\nRequired\nNotes\n\n\n\n\ntitle\nYes\nShown as the page heading\n\n\nauthor\nYes\nYour name\n\n\ndate\nYes\nFormat YYYY-MM-DD\n\n\ndescription\nYes\n1–2 sentences; shown in the listing\n\n\ncategories\nRecommended\nTags for filtering (e.g. [algebra, combinatorics])\n\n\nimage\nOptional\nPath to a thumbnail image in your post folder\n\n\n\n\n\nWriting Prose\nQuarto uses standard Markdown. A few useful examples:\n## Section Heading\n\n**Bold text**, *italic text*, and `inline code`.\n\nA paragraph with a [hyperlink](https://quarto.org).\n\n\nMathematics\nInline math uses single dollar signs: $f(x) = x^2$ renders as \\(f(x) = x^2\\).\nDisplay math uses double dollar signs:\n$$\n\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}\n$$\n\\[\n\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}\n\\]\n\n\nCode Chunks (Optional)\nIf your post includes computations, you can embed executable code. Quarto supports R and Python.\nR example:\n```{r}\nx &lt;- seq(0, 2 * pi, length.out = 200)\nplot(x, sin(x), type = \"l\", col = \"steelblue\", lwd = 2,\n     main = \"Sine Wave\", xlab = \"x\", ylab = \"sin(x)\")\n```\nPython example:\n\n::: {#0a7fa6ba .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 2 * np.pi, 200)\nplt.plot(x, np.sin(x), color=\"steelblue\", linewidth=2)\nplt.title(\"Sine Wave\")\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=590 height=431}\n:::\n:::\n\nCode outputs (plots, tables, printed values) are embedded automatically in the rendered HTML.\n\n\nAdding Images\nPut image files in your post folder alongside index.qmd, then reference them with standard Markdown:\n![Caption text](my-figure.png)"
   },
   {
     "objectID": "posts/how-to-contribute/index.html#preview-locally",
@@ -126,38 +140,24 @@
     "text": "Getting Started\nRead the How to Contribute post for step-by-step instructions on setting up Quarto, creating your first post, and submitting it for review.\nIf you have any questions, reach out at riddhi.battu@ubc.ca.\nGood luck with your research this summer!"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About This Blog",
+    "objectID": "CONTRIBUTING.html",
+    "href": "CONTRIBUTING.html",
+    "title": "Contributing a Post",
     "section": "",
-    "text": "THE UNIVERSITY OF BRITISH COLUMBIA\nThis blog is maintained by summer research assistants in the UBC Department of Mathematics. Each RA contributes posts describing their research project, methods, and findings over the course of the summer."
+    "text": "THE UNIVERSITY OF BRITISH COLUMBIA"
   },
   {
-    "objectID": "about.html#supervisor",
-    "href": "about.html#supervisor",
-    "title": "About This Blog",
-    "section": "Supervisor",
-    "text": "Supervisor\nKhanh Dao Duc — Assistant Professor, UBC Mathematics & Computer Science Research combines mathematical, computational, and statistical tools to study biological processes and complex datasets. khanh.daoduc@ubc.ca"
+    "objectID": "CONTRIBUTING.html#quick-steps",
+    "href": "CONTRIBUTING.html#quick-steps",
+    "title": "Contributing a Post",
+    "section": "Quick Steps",
+    "text": "Quick Steps\n\ngit clone the repo\nconda env create -f environment.yml (first time only)\nconda activate ubcmath-ra-blog\ngit checkout -b firstname-lastname/your-topic\nCreate posts/your-topic/index.qmd with proper YAML frontmatter\nquarto preview to check locally\ngit add, git commit, git push\nOpen a pull request on GitHub targeting main"
   },
   {
-    "objectID": "about.html#maintainer",
-    "href": "about.html#maintainer",
-    "title": "About This Blog",
-    "section": "Maintainer",
-    "text": "Maintainer\nRiddhi Battu — riddhi.battu@ubc.ca"
-  },
-  {
-    "objectID": "about.html#how-posts-are-added",
-    "href": "about.html#how-posts-are-added",
-    "title": "About This Blog",
-    "section": "How Posts Are Added",
-    "text": "How Posts Are Added\nRAs work on individual Git branches and open pull requests to add new posts. See the How to Contribute post for step-by-step instructions."
-  },
-  {
-    "objectID": "about.html#blog-infrastructure",
-    "href": "about.html#blog-infrastructure",
-    "title": "About This Blog",
-    "section": "Blog Infrastructure",
-    "text": "Blog Infrastructure\nThis blog is built with Quarto and deployed to GitHub Pages via GitHub Actions."
+    "objectID": "CONTRIBUTING.html#pr-checklist",
+    "href": "CONTRIBUTING.html#pr-checklist",
+    "title": "Contributing a Post",
+    "section": "PR Checklist",
+    "text": "PR Checklist\n\nBranch name follows firstname-lastname/topic format\nPost is in its own folder under posts/\nYAML has title, author, date, description, and categories\nquarto render completes without errors locally\nNo large binary files committed (images are fine; avoid datasets &gt; 10 MB)"
   }
 ]
