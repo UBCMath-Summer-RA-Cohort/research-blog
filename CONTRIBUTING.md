@@ -5,11 +5,13 @@ Full instructions are in the blog itself: **[posts/how-to-contribute/index.qmd](
 ## Quick Steps
 
 1. `git clone` the repo
-2. `git checkout -b firstname-lastname/your-topic`
-3. Create `posts/your-topic/index.qmd` with proper YAML frontmatter
-4. `quarto preview` to check locally
-5. `git add`, `git commit`, `git push`
-6. Open a pull request on GitHub targeting `main`
+2. `conda env create -f environment.yml` (first time only)
+3. `conda activate ubcmath-ra-blog`
+4. `git checkout -b firstname-lastname/your-topic`
+5. Create `posts/your-topic/index.qmd` with proper YAML frontmatter
+6. `quarto preview` to check locally
+7. `git add`, `git commit`, `git push`
+8. Open a pull request on GitHub targeting `main`
 
 ## PR Checklist
 

@@ -6,6 +6,7 @@ description: "Step-by-step guide for RAs: install Quarto, write your post, and o
 categories: [meta, tutorial]
 toc: true
 toc-depth: 3
+engine: jupyter
 ---
 
 This guide walks you through everything you need to add your research post to this blog — from installing Quarto to opening a pull request.
@@ -37,6 +38,24 @@ quarto --version
 ### A Text Editor
 
 [VS Code](https://code.visualstudio.com/) with the [Quarto extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) gives you live preview and syntax highlighting. RStudio also has native Quarto support.
+
+### Conda Environment
+
+The repository ships with an `environment.yml` that installs Python, R, Quarto, and all required packages in one step. If you do not have conda, install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) first.
+
+Create the environment (only needed once):
+
+```bash
+conda env create -f environment.yml
+```
+
+Activate it at the start of every work session:
+
+```bash
+conda activate ubcmath-ra-blog
+```
+
+Quarto, R, and all Python packages are now available in your shell.
 
 ---
 
@@ -232,6 +251,8 @@ git push -u origin firstname-lastname/my-research-topic
 
 | Task | Command |
 |---|---|
+| Create environment | `conda env create -f environment.yml` |
+| Activate environment | `conda activate ubcmath-ra-blog` |
 | Clone repo | `git clone <url>` |
 | Create branch | `git checkout -b name/topic` |
 | Preview blog | `quarto preview` |
