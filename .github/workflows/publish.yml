@@ -38,7 +38,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install Python packages
-        run: pip install numpy matplotlib pandas
+        run: pip install numpy matplotlib pandas jupyter pyyaml
 
       - name: Render and Publish
         # Only deploy on push to main, not on PRs
