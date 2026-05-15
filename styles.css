@@ -211,3 +211,31 @@ code:not(.sourceCode) {
   border-left: 2px solid var(--ubc-gold);
   padding-left: 0.4rem;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   8. RESPONSIVE / MOBILE
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 576px) {
+  :root {
+    --ubc-bar-height: 50px;
+  }
+
+  .ubc-institutional-bar {
+    padding: 6px 14px;
+  }
+
+  .ubc-crest {
+    width: 36px;
+    height: 39px;
+  }
+
+  .ubc-bar-divider {
+    height: 36px;
+    margin: 0 12px;
+  }
+
+  .ubc-university-name-link {
+    font-size: clamp(0.6rem, 3vw, 0.95rem);
+    letter-spacing: 0.04em;
+  }
+}
