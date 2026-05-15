@@ -8,3 +8,4 @@ __pycache__/
 .Ruserdata
 
 **/*.quarto_ipynb
+.DS_Store
