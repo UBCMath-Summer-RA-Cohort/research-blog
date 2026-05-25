@@ -12,7 +12,7 @@ Research combines mathematical, computational, and statistical tools to study bi
 
 ## Maintainer
 
-**Riddhi Battu** — [riddhi.battu@ubc.ca](mailto:riddhi.battu@ubc.ca)
+**Riddhi Battu** — Research and Data Manager, UBC Mathematics [riddhi.battu@ubc.ca](mailto:riddhi.battu@ubc.ca)
 
 ## How Posts Are Added
 
