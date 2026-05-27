@@ -6,7 +6,9 @@ description: "Step-by-step guide for RAs: install Quarto, write your post, and o
 categories: [meta, tutorial]
 toc: true
 toc-depth: 3
-engine: jupyter
+engine: markdown
+execute:
+  eval: false
 ---
 
 This guide walks you through everything you need to add your research post to this blog — from installing Quarto to opening a pull request.
@@ -59,7 +61,39 @@ Quarto, R, and all Python packages are now available in your shell.
 
 ---
 
-## 2. Clone the Repository
+## 2. Register the Jupyter Kernel
+
+Quarto needs the `ubcmath-ra-blog` environment registered as a Jupyter kernel before it can execute code chunks. Do this once after creating the environment.
+
+### Step 1: Activate the environment
+
+```bash
+conda activate ubcmath-ra-blog
+```
+
+If you are using a plain virtual environment instead of conda:
+
+```bash
+source /path/to/ubcmath-ra-blog/bin/activate
+```
+
+### Step 2: Register the kernel
+
+```bash
+python -m ipykernel install --user --name ubcmath-ra-blog --display-name "ubcmath-ra-blog"
+```
+
+### Step 3: Verify the kernel is registered
+
+```bash
+quarto check jupyter
+```
+
+You should see `ubcmath-ra-blog` listed under known kernels. If it is missing, make sure the environment was active when you ran the install command in Step 2.
+
+---
+
+## 3. Clone the Repository
 
 ```bash
 git clone https://github.com/YOUR-ORG/UBCMath-summer-RA.git
@@ -68,7 +102,7 @@ cd UBCMath-summer-RA
 
 ---
 
-## 3. Create Your Branch
+## 4. Create Your Branch
 
 Always work on your own branch — never commit directly to `main`.
 
@@ -84,7 +118,7 @@ git checkout -b jane-doe/spectral-graph-theory
 
 ---
 
-## 4. Create Your Post Folder
+## 5. Create Your Post Folder
 
 Posts live in `posts/`. Create a folder with a short, descriptive, lowercase-hyphenated name:
 
@@ -100,7 +134,7 @@ mkdir posts/spectral-graph-theory
 
 ---
 
-## 5. Write Your Post
+## 6. Write Your Post
 
 Create `posts/spectral-graph-theory/index.qmd` (or whatever your folder is called) and start with this YAML header:
 
@@ -111,6 +145,7 @@ author: "Your Name"
 date: "2026-MM-DD"
 description: "One sentence about your project — shown in the post listing."
 categories: [your-topic, math]
+jupyter: ubcmath-ra-blog
 ---
 ```
 
@@ -155,17 +190,7 @@ $$
 
 ### Code Chunks (Optional)
 
-If your post includes computations, you can embed executable code. Quarto supports R and Python.
-
-**R example:**
-
-````markdown
-```{r}
-x <- seq(0, 2 * pi, length.out = 200)
-plot(x, sin(x), type = "l", col = "steelblue", lwd = 2,
-     main = "Sine Wave", xlab = "x", ylab = "sin(x)")
-```
-````
+If your post includes computations, you can embed executable code chunks. Since the blog uses a Jupyter kernel, write your code in Python.
 
 **Python example:**
 
@@ -183,6 +208,57 @@ plt.show()
 
 Code outputs (plots, tables, printed values) are embedded automatically in the rendered HTML.
 
+**Useful chunk options:**
+
+````markdown
+```{python}
+#| label: example-chunk  # names the chunk
+#| echo: false           # hides code, shows output only
+#| eval: false           # shows code but does not run it
+#| fig-cap: "My figure"  # adds a caption below the figure
+```
+````
+
+### Inline Code References
+
+You can embed Python values directly in your prose so numbers update automatically when your data or code changes:
+
+````markdown
+```{python}
+#| echo: false
+import pandas as pd
+df = pd.read_csv("data/mydata.csv")
+mean_val = df["score"].mean()
+```
+````
+
+Then in your text:
+
+```markdown
+The dataset contains `{python} len(df)` rows and the mean score is `{python} round(mean_val, 2)`.
+```
+
+This is useful for reproducible reports — no copy-pasting numbers into prose.
+
+### Adding a Dataset
+
+Put data files in your post folder alongside `index.qmd`:
+
+```
+posts/spectral-graph-theory/
+    index.qmd
+    data/
+        mydata.csv
+```
+
+Then read it with a relative path:
+
+```python
+import pandas as pd
+df = pd.read_csv("data/mydata.csv")
+df.head()
+```
+
 ### Adding Images
 
 Put image files in your post folder alongside `index.qmd`, then reference them with standard Markdown:
@@ -193,7 +269,7 @@ Put image files in your post folder alongside `index.qmd`, then reference them w
 
 ---
 
-## 6. Preview Locally
+## 7. Preview Locally
 
 From the project root, run:
 
@@ -211,7 +287,7 @@ quarto render
 
 ---
 
-## 7. Commit and Push
+## 8. Commit and Push
 
 Once you are happy with your post:
 
@@ -228,7 +304,7 @@ git push -u origin firstname-lastname/my-research-topic
 
 ---
 
-## 8. Open a Pull Request
+## 9. Open a Pull Request
 
 1. Go to the repository on GitHub.
 2. Click **"Compare & pull request"** on your branch.
@@ -240,10 +316,12 @@ git push -u origin firstname-lastname/my-research-topic
 
 ## Tips and Common Mistakes
 
+- **Kernel not found**: Make sure you activated the `ubcmath-ra-blog` environment and ran `python -m ipykernel install` before previewing. See Section 2.
 - **Broken YAML**: YAML is whitespace-sensitive. Use spaces, not tabs. If `quarto preview` shows a parse error, the frontmatter is usually the culprit.
 - **Date format**: Use `YYYY-MM-DD` (e.g. `2026-06-10`), not `June 10` or `10/06/2026`.
 - **Math not rendering**: Make sure display math has blank lines above and below the `$$` delimiters.
 - **Images not showing**: Confirm the image file is in the same folder as `index.qmd` and the filename matches exactly (case-sensitive on Linux).
+- **R chunks not executing**: The blog uses a Jupyter kernel, which only runs Python. Use Python for all executable code chunks.
 
 ---
 
@@ -253,6 +331,8 @@ git push -u origin firstname-lastname/my-research-topic
 |---|---|
 | Create environment | `conda env create -f environment.yml` |
 | Activate environment | `conda activate ubcmath-ra-blog` |
+| Register Jupyter kernel | `python -m ipykernel install --user --name ubcmath-ra-blog --display-name "ubcmath-ra-blog"` |
+| Verify kernel | `quarto check jupyter` |
 | Clone repo | `git clone <url>` |
 | Create branch | `git checkout -b name/topic` |
 | Preview blog | `quarto preview` |
