@@ -96,7 +96,7 @@ You should see `ubcmath-ra-blog` listed under known kernels. If it is missing, m
 ## 3. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-ORG/UBCMath-summer-RA.git
+git clone https://github.com/UBCMath-Summer-RA-Cohort/research-blog.git
 cd UBCMath-summer-RA
 ```
 
