@@ -38,7 +38,9 @@ jobs:
           python-version: "3.12"
 
       - name: Install Python packages
-        run: pip install numpy matplotlib pandas jupyter pyyaml
+        run: |
+          pip install numpy matplotlib pandas jupyter pyyaml
+          python -m ipykernel install --user --name ubcmath-ra-blog --display-name "ubcmath-ra-blog"
 
       - name: Render and Publish
         # Only deploy on push to main, not on PRs

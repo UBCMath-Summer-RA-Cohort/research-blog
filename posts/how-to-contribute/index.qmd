@@ -13,6 +13,8 @@ execute:
 
 This guide walks you through everything you need to add your research post to this blog — from installing Quarto to opening a pull request.
 
+**Most contributors only need Git and Quarto.** Jupyter and Python are only required if your post includes executable code cells (e.g. plots or computations). Jump to the [optional code setup section](#optional-adding-executable-code) only if you need that.
+
 ## 1. Prerequisites
 
 You need the following tools installed once on your machine.
@@ -41,59 +43,9 @@ quarto --version
 
 [VS Code](https://code.visualstudio.com/) with the [Quarto extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto) gives you live preview and syntax highlighting. RStudio also has native Quarto support.
 
-### Conda Environment
-
-The repository ships with an `environment.yml` that installs Python, R, Quarto, and all required packages in one step. If you do not have conda, install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) first.
-
-Create the environment (only needed once):
-
-```bash
-conda env create -f environment.yml
-```
-
-Activate it at the start of every work session:
-
-```bash
-conda activate ubcmath-ra-blog
-```
-
-Quarto, R, and all Python packages are now available in your shell.
-
 ---
 
-## 2. Register the Jupyter Kernel
-
-Quarto needs the `ubcmath-ra-blog` environment registered as a Jupyter kernel before it can execute code chunks. Do this once after creating the environment.
-
-### Step 1: Activate the environment
-
-```bash
-conda activate ubcmath-ra-blog
-```
-
-If you are using a plain virtual environment instead of conda:
-
-```bash
-source /path/to/ubcmath-ra-blog/bin/activate
-```
-
-### Step 2: Register the kernel
-
-```bash
-python -m ipykernel install --user --name ubcmath-ra-blog --display-name "ubcmath-ra-blog"
-```
-
-### Step 3: Verify the kernel is registered
-
-```bash
-quarto check jupyter
-```
-
-You should see `ubcmath-ra-blog` listed under known kernels. If it is missing, make sure the environment was active when you ran the install command in Step 2.
-
----
-
-## 3. Clone the Repository
+## 2. Clone the Repository
 
 ```bash
 git clone https://github.com/UBCMath-Summer-RA-Cohort/research-blog.git
@@ -102,7 +54,7 @@ cd research-blog
 
 ---
 
-## 4. Create Your Branch
+## 3. Create Your Branch
 
 Always work on your own branch — never commit directly to `main`.
 
@@ -118,7 +70,7 @@ git checkout -b jane-doe/spectral-graph-theory
 
 ---
 
-## 5. Create Your Post Folder
+## 4. Create Your Post Folder
 
 Posts live in `posts/`. Create a folder with a short, descriptive, lowercase-hyphenated name:
 
@@ -134,7 +86,7 @@ mkdir posts/spectral-graph-theory
 
 ---
 
-## 6. Write Your Post
+## 5. Write Your Post
 
 Create `posts/spectral-graph-theory/index.qmd` (or whatever your folder is called) and start with this YAML header:
 
@@ -145,9 +97,10 @@ author: "Your Name"
 date: "2026-MM-DD"
 description: "One sentence about your project — shown in the post listing."
 categories: [your-topic, math]
-jupyter: ubcmath-ra-blog
 ---
 ```
+
+> **If your post has executable Python code**, add `jupyter: ubcmath-ra-blog` to the YAML and complete the [optional setup](#optional-adding-executable-code) first.
 
 ### YAML Fields
 
@@ -188,11 +141,111 @@ $$
 \int_0^\infty e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}
 $$
 
-### Code Chunks (Optional)
+### Adding Images
 
-If your post includes computations, you can embed executable code chunks. Since the blog uses a Jupyter kernel, write your code in Python.
+Put image files in your post folder alongside `index.qmd`, then reference them with standard Markdown:
 
-**Python example:**
+```markdown
+![Caption text](my-figure.png)
+```
+
+---
+
+## 6. Preview Locally
+
+From the project root, run:
+
+```bash
+quarto preview
+```
+
+This opens a live-updating browser preview at `http://localhost:4444` (or similar). Save your file to see changes instantly. Use `Ctrl+C` to stop the server when done.
+
+To render without serving:
+
+```bash
+quarto render
+```
+
+---
+
+## 7. Commit and Push
+
+Once you are happy with your post:
+
+```bash
+# Stage your new files
+git add posts/spectral-graph-theory/
+
+# Commit
+git commit -m "Add post: Spectral Graph Theory intro"
+
+# Push your branch
+git push -u origin firstname-lastname/my-research-topic
+```
+
+---
+
+## 8. Open a Pull Request
+
+1. Go to the repository on GitHub.
+2. Click **"Compare & pull request"** on your branch.
+3. Give the PR a clear title, e.g. `Add post: Spectral Graph Theory`.
+4. In the description, summarize your post in a sentence or two.
+5. Submit — your supervisor will review and merge.
+
+---
+
+## Optional: Adding Executable Code {#optional-adding-executable-code}
+
+Skip this section unless your post includes live Python computations or plots. It requires conda and Jupyter.
+
+### Step 1: Install the conda environment
+
+The repository ships with an `environment.yml` that installs Python, Jupyter, and scientific packages. If you do not have conda, install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) first, then run once:
+
+```bash
+conda env create -f environment.yml
+```
+
+Activate it at the start of every work session:
+
+```bash
+conda activate ubcmath-ra-blog
+```
+
+### Step 2: Register the Jupyter kernel
+
+Do this once after creating the environment:
+
+```bash
+python -m ipykernel install --user --name ubcmath-ra-blog --display-name "ubcmath-ra-blog"
+```
+
+Verify it worked:
+
+```bash
+quarto check jupyter
+```
+
+You should see `ubcmath-ra-blog` listed under known kernels.
+
+### Step 3: Add `jupyter:` to your post's YAML
+
+```yaml
+---
+title: "Your Post Title"
+author: "Your Name"
+date: "2026-MM-DD"
+description: "One sentence about your project."
+categories: [your-topic, math]
+jupyter: ubcmath-ra-blog
+---
+```
+
+### Writing code chunks
+
+Embed executable Python chunks like this:
 
 ````markdown
 ```{python}
@@ -212,16 +265,14 @@ Code outputs (plots, tables, printed values) are embedded automatically in the r
 
 ````markdown
 ```{python}
-#| label: example-chunk  # names the chunk
-#| echo: false           # hides code, shows output only
-#| eval: false           # shows code but does not run it
-#| fig-cap: "My figure"  # adds a caption below the figure
+#| label: example-chunk
+#| echo: false      # hides code, shows output only
+#| eval: false      # shows code but does not run it
+#| fig-cap: "My figure"
 ```
 ````
 
-### Inline Code References
-
-You can embed Python values directly in your prose so numbers update automatically when your data or code changes:
+You can also embed computed values inline so numbers update automatically:
 
 ````markdown
 ```{python}
@@ -232,15 +283,9 @@ mean_val = df["score"].mean()
 ```
 ````
 
-Then in your text:
-
 ```markdown
 The dataset contains `{python} len(df)` rows and the mean score is `{python} round(mean_val, 2)`.
 ```
-
-This is useful for reproducible reports — no copy-pasting numbers into prose.
-
-### Adding a Dataset
 
 Put data files in your post folder alongside `index.qmd`:
 
@@ -251,77 +296,15 @@ posts/spectral-graph-theory/
         mydata.csv
 ```
 
-Then read it with a relative path:
-
-```python
-import pandas as pd
-df = pd.read_csv("data/mydata.csv")
-df.head()
-```
-
-### Adding Images
-
-Put image files in your post folder alongside `index.qmd`, then reference them with standard Markdown:
-
-```markdown
-![Caption text](my-figure.png)
-```
-
----
-
-## 7. Preview Locally
-
-From the project root, run:
-
-```bash
-quarto preview
-```
-
-This opens a live-updating browser preview at `http://localhost:4444` (or similar). Save your file to see changes instantly. Use `Ctrl+C` to stop the server when done.
-
-To render without serving:
-
-```bash
-quarto render
-```
-
----
-
-## 8. Commit and Push
-
-Once you are happy with your post:
-
-```bash
-# Stage your new files
-git add posts/spectral-graph-theory/
-
-# Commit
-git commit -m "Add post: Spectral Graph Theory intro"
-
-# Push your branch
-git push -u origin firstname-lastname/my-research-topic
-```
-
----
-
-## 9. Open a Pull Request
-
-1. Go to the repository on GitHub.
-2. Click **"Compare & pull request"** on your branch.
-3. Give the PR a clear title, e.g. `Add post: Spectral Graph Theory`.
-4. In the description, summarize your post in a sentence or two.
-5. Submit — your supervisor will review and merge.
-
 ---
 
 ## Tips and Common Mistakes
 
-- **Kernel not found**: Make sure you activated the `ubcmath-ra-blog` environment and ran `python -m ipykernel install` before previewing. See Section 2.
 - **Broken YAML**: YAML is whitespace-sensitive. Use spaces, not tabs. If `quarto preview` shows a parse error, the frontmatter is usually the culprit.
 - **Date format**: Use `YYYY-MM-DD` (e.g. `2026-06-10`), not `June 10` or `10/06/2026`.
 - **Math not rendering**: Make sure display math has blank lines above and below the `$$` delimiters.
 - **Images not showing**: Confirm the image file is in the same folder as `index.qmd` and the filename matches exactly (case-sensitive on Linux).
-- **R chunks not executing**: The blog uses a Jupyter kernel, which only runs Python. Use Python for all executable code chunks.
+- **Kernel not found** *(code posts only)*: Make sure you activated the `ubcmath-ra-blog` environment and ran `python -m ipykernel install` before previewing. See the [optional setup section](#optional-adding-executable-code).
 
 ---
 
@@ -329,10 +312,6 @@ git push -u origin firstname-lastname/my-research-topic
 
 | Task | Command |
 |---|---|
-| Create environment | `conda env create -f environment.yml` |
-| Activate environment | `conda activate ubcmath-ra-blog` |
-| Register Jupyter kernel | `python -m ipykernel install --user --name ubcmath-ra-blog --display-name "ubcmath-ra-blog"` |
-| Verify kernel | `quarto check jupyter` |
 | Clone repo | `git clone <url>` |
 | Create branch | `git checkout -b name/topic` |
 | Preview blog | `quarto preview` |
@@ -340,3 +319,12 @@ git push -u origin firstname-lastname/my-research-topic
 | Stage files | `git add posts/your-folder/` |
 | Commit | `git commit -m "message"` |
 | Push branch | `git push -u origin branch-name` |
+
+**Code posts only:**
+
+| Task | Command |
+|---|---|
+| Create environment | `conda env create -f environment.yml` |
+| Activate environment | `conda activate ubcmath-ra-blog` |
+| Register Jupyter kernel | `python -m ipykernel install --user --name ubcmath-ra-blog --display-name "ubcmath-ra-blog"` |
+| Verify kernel | `quarto check jupyter` |
