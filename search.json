@@ -109,7 +109,7 @@
     "href": "posts/how-to-contribute/index.html#clone-the-repository",
     "title": "How to Contribute a Blog Post",
     "section": "3. Clone the Repository",
-    "text": "3. Clone the Repository\ngit clone https://github.com/UBCMath-Summer-RA-Cohort/research-blog.git\ncd UBCMath-summer-RA"
+    "text": "3. Clone the Repository\ngit clone https://github.com/UBCMath-Summer-RA-Cohort/research-blog.git\ncd research-blog"
   },
   {
     "objectID": "posts/how-to-contribute/index.html#create-your-branch",
