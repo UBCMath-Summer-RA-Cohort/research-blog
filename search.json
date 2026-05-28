@@ -74,7 +74,7 @@
     "href": "CONTRIBUTING.html#quick-steps",
     "title": "Contributing a Post",
     "section": "Quick Steps",
-    "text": "Quick Steps\n\ngit clone the repo\nconda env create -f environment.yml (first time only)\nconda activate ubcmath-ra-blog\ngit checkout -b firstname-lastname/your-topic\nCreate posts/your-topic/index.qmd with proper YAML frontmatter\nquarto preview to check locally\ngit add, git commit, git push\nOpen a pull request on GitHub targeting main"
+    "text": "Quick Steps\n\nInstall Git and Quarto\ngit clone the repo\ngit checkout -b firstname-lastname/your-topic\nCreate posts/your-topic/index.qmd with proper YAML frontmatter\nquarto preview to check locally\ngit add, git commit, git push\nOpen a pull request on GitHub targeting main\n\n\nJupyter/conda not required unless your post has executable Python code. See the optional setup section if you need it."
   },
   {
     "objectID": "CONTRIBUTING.html#pr-checklist",
@@ -88,83 +88,83 @@
     "href": "posts/how-to-contribute/index.html",
     "title": "How to Contribute a Blog Post",
     "section": "",
-    "text": "THE UNIVERSITY OF BRITISH COLUMBIA\nThis guide walks you through everything you need to add your research post to this blog — from installing Quarto to opening a pull request."
+    "text": "THE UNIVERSITY OF BRITISH COLUMBIA\nThis guide walks you through everything you need to add your research post to this blog — from installing Quarto to opening a pull request.\nMost contributors only need Git and Quarto. Jupyter and Python are only required if your post includes executable code cells (e.g. plots or computations). Jump to the optional code setup section only if you need that."
   },
   {
     "objectID": "posts/how-to-contribute/index.html#prerequisites",
     "href": "posts/how-to-contribute/index.html#prerequisites",
     "title": "How to Contribute a Blog Post",
     "section": "1. Prerequisites",
-    "text": "1. Prerequisites\nYou need the following tools installed once on your machine.\n\nGit\nCheck whether Git is installed:\ngit --version\nIf not, download it from https://git-scm.com.\n\n\nQuarto\nDownload and install Quarto from https://quarto.org/docs/get-started/. It works on macOS, Windows, and Linux.\nVerify the install:\nquarto --version\n\n\nA Text Editor\nVS Code with the Quarto extension gives you live preview and syntax highlighting. RStudio also has native Quarto support.\n\n\nConda Environment\nThe repository ships with an environment.yml that installs Python, R, Quarto, and all required packages in one step. If you do not have conda, install Miniconda first.\nCreate the environment (only needed once):\nconda env create -f environment.yml\nActivate it at the start of every work session:\nconda activate ubcmath-ra-blog\nQuarto, R, and all Python packages are now available in your shell."
-  },
-  {
-    "objectID": "posts/how-to-contribute/index.html#register-the-jupyter-kernel",
-    "href": "posts/how-to-contribute/index.html#register-the-jupyter-kernel",
-    "title": "How to Contribute a Blog Post",
-    "section": "2. Register the Jupyter Kernel",
-    "text": "2. Register the Jupyter Kernel\nQuarto needs the ubcmath-ra-blog environment registered as a Jupyter kernel before it can execute code chunks. Do this once after creating the environment.\n\nStep 1: Activate the environment\nconda activate ubcmath-ra-blog\nIf you are using a plain virtual environment instead of conda:\nsource /path/to/ubcmath-ra-blog/bin/activate\n\n\nStep 2: Register the kernel\npython -m ipykernel install --user --name ubcmath-ra-blog --display-name \"ubcmath-ra-blog\"\n\n\nStep 3: Verify the kernel is registered\nquarto check jupyter\nYou should see ubcmath-ra-blog listed under known kernels. If it is missing, make sure the environment was active when you ran the install command in Step 2."
+    "text": "1. Prerequisites\nYou need the following tools installed once on your machine.\n\nGit\nCheck whether Git is installed:\ngit --version\nIf not, download it from https://git-scm.com.\n\n\nQuarto\nDownload and install Quarto from https://quarto.org/docs/get-started/. It works on macOS, Windows, and Linux.\nVerify the install:\nquarto --version\n\n\nA Text Editor\nVS Code with the Quarto extension gives you live preview and syntax highlighting. RStudio also has native Quarto support."
   },
   {
     "objectID": "posts/how-to-contribute/index.html#clone-the-repository",
     "href": "posts/how-to-contribute/index.html#clone-the-repository",
     "title": "How to Contribute a Blog Post",
-    "section": "3. Clone the Repository",
-    "text": "3. Clone the Repository\ngit clone https://github.com/UBCMath-Summer-RA-Cohort/research-blog.git\ncd research-blog"
+    "section": "2. Clone the Repository",
+    "text": "2. Clone the Repository\ngit clone https://github.com/UBCMath-Summer-RA-Cohort/research-blog.git\ncd research-blog"
   },
   {
     "objectID": "posts/how-to-contribute/index.html#create-your-branch",
     "href": "posts/how-to-contribute/index.html#create-your-branch",
     "title": "How to Contribute a Blog Post",
-    "section": "4. Create Your Branch",
-    "text": "4. Create Your Branch\nAlways work on your own branch — never commit directly to main.\ngit checkout -b firstname-lastname/my-research-topic\nFor example:\ngit checkout -b jane-doe/spectral-graph-theory"
+    "section": "3. Create Your Branch",
+    "text": "3. Create Your Branch\nAlways work on your own branch — never commit directly to main.\ngit checkout -b firstname-lastname/my-research-topic\nFor example:\ngit checkout -b jane-doe/spectral-graph-theory"
   },
   {
     "objectID": "posts/how-to-contribute/index.html#create-your-post-folder",
     "href": "posts/how-to-contribute/index.html#create-your-post-folder",
     "title": "How to Contribute a Blog Post",
-    "section": "5. Create Your Post Folder",
-    "text": "5. Create Your Post Folder\nPosts live in posts/. Create a folder with a short, descriptive, lowercase-hyphenated name:\nposts/\n└── spectral-graph-theory/\n    └── index.qmd\nmkdir posts/spectral-graph-theory"
+    "section": "4. Create Your Post Folder",
+    "text": "4. Create Your Post Folder\nPosts live in posts/. Create a folder with a short, descriptive, lowercase-hyphenated name:\nposts/\n└── spectral-graph-theory/\n    └── index.qmd\nmkdir posts/spectral-graph-theory"
   },
   {
     "objectID": "posts/how-to-contribute/index.html#write-your-post",
     "href": "posts/how-to-contribute/index.html#write-your-post",
     "title": "How to Contribute a Blog Post",
-    "section": "6. Write Your Post",
-    "text": "6. Write Your Post\nCreate posts/spectral-graph-theory/index.qmd (or whatever your folder is called) and start with this YAML header:\n---\ntitle: \"Your Post Title\"\nauthor: \"Your Name\"\ndate: \"2026-MM-DD\"\ndescription: \"One sentence about your project — shown in the post listing.\"\ncategories: [your-topic, math]\njupyter: ubcmath-ra-blog\n---\n\nYAML Fields\n\n\n\n\n\n\n\n\nField\nRequired\nNotes\n\n\n\n\ntitle\nYes\nShown as the page heading\n\n\nauthor\nYes\nYour name\n\n\ndate\nYes\nFormat YYYY-MM-DD\n\n\ndescription\nYes\n1–2 sentences; shown in the listing\n\n\ncategories\nRecommended\nTags for filtering (e.g. [algebra, combinatorics])\n\n\nimage\nOptional\nPath to a thumbnail image in your post folder\n\n\n\n\n\nWriting Prose\nQuarto uses standard Markdown. A few useful examples:\n## Section Heading\n\n**Bold text**, *italic text*, and `inline code`.\n\nA paragraph with a [hyperlink](https://quarto.org).\n\n\nMathematics\nInline math uses single dollar signs: $f(x) = x^2$ renders as \\(f(x) = x^2\\).\nDisplay math uses double dollar signs:\n$$\n\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}\n$$\n\\[\n\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}\n\\]\n\n\nCode Chunks (Optional)\nIf your post includes computations, you can embed executable code chunks. Since the blog uses a Jupyter kernel, write your code in Python.\nPython example:\n```{python}\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 2 * np.pi, 200)\nplt.plot(x, np.sin(x), color=\"steelblue\", linewidth=2)\nplt.title(\"Sine Wave\")\nplt.show()\n```\nCode outputs (plots, tables, printed values) are embedded automatically in the rendered HTML.\nUseful chunk options:\n```{python}\n#| label: example-chunk  # names the chunk\n#| echo: false           # hides code, shows output only\n#| eval: false           # shows code but does not run it\n#| fig-cap: \"My figure\"  # adds a caption below the figure\n```\n\n\nInline Code References\nYou can embed Python values directly in your prose so numbers update automatically when your data or code changes:\n```{python}\n#| echo: false\nimport pandas as pd\ndf = pd.read_csv(\"data/mydata.csv\")\nmean_val = df[\"score\"].mean()\n```\nThen in your text:\nThe dataset contains `{python} len(df)` rows and the mean score is `{python} round(mean_val, 2)`.\nThis is useful for reproducible reports — no copy-pasting numbers into prose.\n\n\nAdding a Dataset\nPut data files in your post folder alongside index.qmd:\nposts/spectral-graph-theory/\n    index.qmd\n    data/\n        mydata.csv\nThen read it with a relative path:\nimport pandas as pd\ndf = pd.read_csv(\"data/mydata.csv\")\ndf.head()\n\n\nAdding Images\nPut image files in your post folder alongside index.qmd, then reference them with standard Markdown:\n![Caption text](my-figure.png)"
+    "section": "5. Write Your Post",
+    "text": "5. Write Your Post\nCreate posts/spectral-graph-theory/index.qmd (or whatever your folder is called) and start with this YAML header:\n---\ntitle: \"Your Post Title\"\nauthor: \"Your Name\"\ndate: \"2026-MM-DD\"\ndescription: \"One sentence about your project — shown in the post listing.\"\ncategories: [your-topic, math]\n---\n\nIf your post has executable Python code, add jupyter: ubcmath-ra-blog to the YAML and complete the optional setup first.\n\n\nYAML Fields\n\n\n\n\n\n\n\n\nField\nRequired\nNotes\n\n\n\n\ntitle\nYes\nShown as the page heading\n\n\nauthor\nYes\nYour name\n\n\ndate\nYes\nFormat YYYY-MM-DD\n\n\ndescription\nYes\n1–2 sentences; shown in the listing\n\n\ncategories\nRecommended\nTags for filtering (e.g. [algebra, combinatorics])\n\n\nimage\nOptional\nPath to a thumbnail image in your post folder\n\n\n\n\n\nWriting Prose\nQuarto uses standard Markdown. A few useful examples:\n## Section Heading\n\n**Bold text**, *italic text*, and `inline code`.\n\nA paragraph with a [hyperlink](https://quarto.org).\n\n\nMathematics\nInline math uses single dollar signs: $f(x) = x^2$ renders as \\(f(x) = x^2\\).\nDisplay math uses double dollar signs:\n$$\n\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}\n$$\n\\[\n\\int_0^\\infty e^{-x^2} \\, dx = \\frac{\\sqrt{\\pi}}{2}\n\\]\n\n\nAdding Images\nPut image files in your post folder alongside index.qmd, then reference them with standard Markdown:\n![Caption text](my-figure.png)"
   },
   {
     "objectID": "posts/how-to-contribute/index.html#preview-locally",
     "href": "posts/how-to-contribute/index.html#preview-locally",
     "title": "How to Contribute a Blog Post",
-    "section": "7. Preview Locally",
-    "text": "7. Preview Locally\nFrom the project root, run:\nquarto preview\nThis opens a live-updating browser preview at http://localhost:4444 (or similar). Save your file to see changes instantly. Use Ctrl+C to stop the server when done.\nTo render without serving:\nquarto render"
+    "section": "6. Preview Locally",
+    "text": "6. Preview Locally\nFrom the project root, run:\nquarto preview\nThis opens a live-updating browser preview at http://localhost:4444 (or similar). Save your file to see changes instantly. Use Ctrl+C to stop the server when done.\nTo render without serving:\nquarto render"
   },
   {
     "objectID": "posts/how-to-contribute/index.html#commit-and-push",
     "href": "posts/how-to-contribute/index.html#commit-and-push",
     "title": "How to Contribute a Blog Post",
-    "section": "8. Commit and Push",
-    "text": "8. Commit and Push\nOnce you are happy with your post:\n# Stage your new files\ngit add posts/spectral-graph-theory/\n\n# Commit\ngit commit -m \"Add post: Spectral Graph Theory intro\"\n\n# Push your branch\ngit push -u origin firstname-lastname/my-research-topic"
+    "section": "7. Commit and Push",
+    "text": "7. Commit and Push\nOnce you are happy with your post:\n# Stage your new files\ngit add posts/spectral-graph-theory/\n\n# Commit\ngit commit -m \"Add post: Spectral Graph Theory intro\"\n\n# Push your branch\ngit push -u origin firstname-lastname/my-research-topic"
   },
   {
     "objectID": "posts/how-to-contribute/index.html#open-a-pull-request",
     "href": "posts/how-to-contribute/index.html#open-a-pull-request",
     "title": "How to Contribute a Blog Post",
-    "section": "9. Open a Pull Request",
-    "text": "9. Open a Pull Request\n\nGo to the repository on GitHub.\nClick “Compare & pull request” on your branch.\nGive the PR a clear title, e.g. Add post: Spectral Graph Theory.\nIn the description, summarize your post in a sentence or two.\nSubmit — your supervisor will review and merge."
+    "section": "8. Open a Pull Request",
+    "text": "8. Open a Pull Request\n\nGo to the repository on GitHub.\nClick “Compare & pull request” on your branch.\nGive the PR a clear title, e.g. Add post: Spectral Graph Theory.\nIn the description, summarize your post in a sentence or two.\nSubmit — your supervisor will review and merge."
+  },
+  {
+    "objectID": "posts/how-to-contribute/index.html#optional-adding-executable-code",
+    "href": "posts/how-to-contribute/index.html#optional-adding-executable-code",
+    "title": "How to Contribute a Blog Post",
+    "section": "Optional: Adding Executable Code",
+    "text": "Optional: Adding Executable Code\nSkip this section unless your post includes live Python computations or plots. It requires conda and Jupyter.\n\nStep 1: Install the conda environment\nThe repository ships with an environment.yml that installs Python, Jupyter, and scientific packages. If you do not have conda, install Miniconda first, then run once:\nconda env create -f environment.yml\nActivate it at the start of every work session:\nconda activate ubcmath-ra-blog\n\n\nStep 2: Register the Jupyter kernel\nDo this once after creating the environment:\npython -m ipykernel install --user --name ubcmath-ra-blog --display-name \"ubcmath-ra-blog\"\nVerify it worked:\nquarto check jupyter\nYou should see ubcmath-ra-blog listed under known kernels.\n\n\nStep 3: Add jupyter: to your post’s YAML\n---\ntitle: \"Your Post Title\"\nauthor: \"Your Name\"\ndate: \"2026-MM-DD\"\ndescription: \"One sentence about your project.\"\ncategories: [your-topic, math]\njupyter: ubcmath-ra-blog\n---\n\n\nWriting code chunks\nEmbed executable Python chunks like this:\n```{python}\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 2 * np.pi, 200)\nplt.plot(x, np.sin(x), color=\"steelblue\", linewidth=2)\nplt.title(\"Sine Wave\")\nplt.show()\n```\nCode outputs (plots, tables, printed values) are embedded automatically in the rendered HTML.\nUseful chunk options:\n```{python}\n#| label: example-chunk\n#| echo: false      # hides code, shows output only\n#| eval: false      # shows code but does not run it\n#| fig-cap: \"My figure\"\n```\nYou can also embed computed values inline so numbers update automatically:\n```{python}\n#| echo: false\nimport pandas as pd\ndf = pd.read_csv(\"data/mydata.csv\")\nmean_val = df[\"score\"].mean()\n```\nThe dataset contains `{python} len(df)` rows and the mean score is `{python} round(mean_val, 2)`.\nPut data files in your post folder alongside index.qmd:\nposts/spectral-graph-theory/\n    index.qmd\n    data/\n        mydata.csv"
   },
   {
     "objectID": "posts/how-to-contribute/index.html#tips-and-common-mistakes",
     "href": "posts/how-to-contribute/index.html#tips-and-common-mistakes",
     "title": "How to Contribute a Blog Post",
     "section": "Tips and Common Mistakes",
-    "text": "Tips and Common Mistakes\n\nKernel not found: Make sure you activated the ubcmath-ra-blog environment and ran python -m ipykernel install before previewing. See Section 2.\nBroken YAML: YAML is whitespace-sensitive. Use spaces, not tabs. If quarto preview shows a parse error, the frontmatter is usually the culprit.\nDate format: Use YYYY-MM-DD (e.g. 2026-06-10), not June 10 or 10/06/2026.\nMath not rendering: Make sure display math has blank lines above and below the $$ delimiters.\nImages not showing: Confirm the image file is in the same folder as index.qmd and the filename matches exactly (case-sensitive on Linux).\nR chunks not executing: The blog uses a Jupyter kernel, which only runs Python. Use Python for all executable code chunks."
+    "text": "Tips and Common Mistakes\n\nBroken YAML: YAML is whitespace-sensitive. Use spaces, not tabs. If quarto preview shows a parse error, the frontmatter is usually the culprit.\nDate format: Use YYYY-MM-DD (e.g. 2026-06-10), not June 10 or 10/06/2026.\nMath not rendering: Make sure display math has blank lines above and below the $$ delimiters.\nImages not showing: Confirm the image file is in the same folder as index.qmd and the filename matches exactly (case-sensitive on Linux).\nKernel not found (code posts only): Make sure you activated the ubcmath-ra-blog environment and ran python -m ipykernel install before previewing. See the optional setup section."
   },
   {
     "objectID": "posts/how-to-contribute/index.html#quick-reference",
     "href": "posts/how-to-contribute/index.html#quick-reference",
     "title": "How to Contribute a Blog Post",
     "section": "Quick Reference",
-    "text": "Quick Reference\n\n\n\n\n\n\n\nTask\nCommand\n\n\n\n\nCreate environment\nconda env create -f environment.yml\n\n\nActivate environment\nconda activate ubcmath-ra-blog\n\n\nRegister Jupyter kernel\npython -m ipykernel install --user --name ubcmath-ra-blog --display-name \"ubcmath-ra-blog\"\n\n\nVerify kernel\nquarto check jupyter\n\n\nClone repo\ngit clone &lt;url&gt;\n\n\nCreate branch\ngit checkout -b name/topic\n\n\nPreview blog\nquarto preview\n\n\nRender blog\nquarto render\n\n\nStage files\ngit add posts/your-folder/\n\n\nCommit\ngit commit -m \"message\"\n\n\nPush branch\ngit push -u origin branch-name"
+    "text": "Quick Reference\n\n\n\nTask\nCommand\n\n\n\n\nClone repo\ngit clone &lt;url&gt;\n\n\nCreate branch\ngit checkout -b name/topic\n\n\nPreview blog\nquarto preview\n\n\nRender blog\nquarto render\n\n\nStage files\ngit add posts/your-folder/\n\n\nCommit\ngit commit -m \"message\"\n\n\nPush branch\ngit push -u origin branch-name\n\n\n\nCode posts only:\n\n\n\n\n\n\n\nTask\nCommand\n\n\n\n\nCreate environment\nconda env create -f environment.yml\n\n\nActivate environment\nconda activate ubcmath-ra-blog\n\n\nRegister Jupyter kernel\npython -m ipykernel install --user --name ubcmath-ra-blog --display-name \"ubcmath-ra-blog\"\n\n\nVerify kernel\nquarto check jupyter"
   }
 ]
