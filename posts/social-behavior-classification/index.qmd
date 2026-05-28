@@ -1,0 +1,8 @@
+---
+title: "Your Post Title"
+author: "Yerassyl Abilkassym"
+date: "2026-MM-DD"
+description: "One sentence about your project — shown in the post listing."
+categories: [your-topic, math]
+jupyter: ubcmath-ra-blog
+---
