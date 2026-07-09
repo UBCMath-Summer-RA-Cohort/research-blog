@@ -2,8 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/how-to-contribute/index.html",
-      "/posts/welcome/index.html"
+      "/posts/test/index.html",
+      "/posts/welcome/index.html",
+      "/posts/how-to-contribute/index.html"
     ]
   }
 ]
