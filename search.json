@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "UBC Math Summer Research Blog",
     "section": "",
-    "text": "THE UNIVERSITY OF BRITISH COLUMBIA\n  \n\n\n\n\n\n\nWelcome to the UBC Mathematics Summer Research Assistant Blog. Each post here is written by an RA and describes their ongoing research project.\nBrowse posts below, or filter by category to find topics that interest you.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\nTesting for Demo\n\n\n\ndemo\n\nquarto\n\n\n\nDemo on how to create a post\n\n\n\n\n\nMay 27, 2026\n\n\nRiddhi Battu\n\n1 min\n\n\n\n\n\n\nWelcome to the UBC Math Summer RA Blog\n\n\n\nannouncements\n\n\n\nAn introduction to the summer research assistant program and this blog.\n\n\n\n\n\nMay 15, 2026\n\n\nRiddhi Battu\n\n1 min\n\n\n\n\n\n\nHow to Contribute a Blog Post\n\n\n\nmeta\n\ntutorial\n\n\n\nStep-by-step guide for RAs: install Quarto, write your post, and open a pull request.\n\n\n\n\n\nMay 15, 2026\n\n\nRiddhi Battu\n\n5 min\n\n\n\n\nNo matching items"
+    "text": "THE UNIVERSITY OF BRITISH COLUMBIA\n  \n\n\n\n\n\n\nWelcome to the UBC Mathematics Summer Research Assistant Blog. Each post here is written by an RA and describes their ongoing research project.\nBrowse posts below, or filter by category to find topics that interest you.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\nWelcome to the UBC Math Summer RA Blog\n\n\n\nannouncements\n\n\n\nAn introduction to the summer research assistant program and this blog.\n\n\n\n\n\nMay 15, 2026\n\n\nRiddhi Battu\n\n1 min\n\n\n\n\n\n\nHow to Contribute a Blog Post\n\n\n\nmeta\n\ntutorial\n\n\n\nStep-by-step guide for RAs: install Quarto, write your post, and open a pull request.\n\n\n\n\n\nMay 15, 2026\n\n\nRiddhi Battu\n\n5 min\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "CONTRIBUTING.html",
@@ -26,13 +26,6 @@
     "title": "Contributing a Post",
     "section": "PR Checklist",
     "text": "PR Checklist\n\nBranch name follows firstname-lastname/topic format\nPost is in its own folder under posts/\nYAML has title, author, date, description, and categories\nquarto render completes without errors locally\nNo large binary files committed (images are fine; avoid datasets &gt; 10 MB)"
-  },
-  {
-    "objectID": "posts/test/index.html",
-    "href": "posts/test/index.html",
-    "title": "Testing for Demo",
-    "section": "",
-    "text": "THE UNIVERSITY OF BRITISH COLUMBIA\n  \n\n\n\n\n\nThis is a test post to demonstrate how to create a new blog post using Quarto.\n\nThis is a heading\nHere is some sample content for the blog post. You can write in Markdown and include code chunks as needed.\n\n# This is a Python code chunk\nimport numpy as np\nimport matplotlib.pyplot as plt \nx = np.linspace(0, 10, 100)\ny = np.sin(x)\nplt.plot(x, y)\nplt.title(\"Sine Wave\")\nplt.show()\n\n# load csv\nimport pandas as pd\ndf = pd.read_csv('data/demo.csv')\nprint(df.head())\nprint(f'df.describe():\\n{df.describe()}')\n\n\n\n\n\n\n\n\n          x         y\n0  0.000000  0.000000\n1  0.204082  0.202668\n2  0.408163  0.396924\n3  0.612245  0.574706\n4  0.816327  0.728635\ndf.describe():\n               x          y\ncount  50.000000  50.000000\nmean    5.000000   0.174163\nstd     2.974975   0.670494\nmin     0.000000  -0.999829\n25%     2.500000  -0.361204\n50%     5.000000   0.262770\n75%     7.500000   0.775358\nmax    10.000000   0.998087\n\n\nThe dataset has 50 rows. The dataset has 2 columns. The columns are: [‘x’, ‘y’].\nYou can also include mathematical equations using LaTeX syntax. For example, the quadratic formula is given by: \\[\nx = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\n\\]"
   },
   {
     "objectID": "posts/welcome/index.html",
